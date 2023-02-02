@@ -60,9 +60,23 @@ DROP TABLE IF EXISTS user;
 CREATE TABLE
   user (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
     img_user VARCHAR(255) NOT NULL,
     profil VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    id_family INT NOT NULL
+  );
+
+DROP TABLE IF EXISTs family;
+
+CREATE TABLE
+  family (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    img_family VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    id_user INT NOT NULL,
+    FOREIGN KEY (id_user) REFERENCES user (id)
   );
